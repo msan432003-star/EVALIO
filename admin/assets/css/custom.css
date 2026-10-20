@@ -1,0 +1,981 @@
+/*=============================================================
+    Admin Panel - Modern Dual Theme System (Light & Dark Mode)
+    Matches User Reference Images:
+    - Image 1: Clean Light Dashboard with Colored Header Badges
+    - Image 2: Sleek Dark Dashboard with Glowing Accents
+    - Image 3: Futuristic Neon Glassmorphism Login
+=============================================================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+/* =============================================================
+   THEME COLOR VARIABLES
+============================================================= */
+
+/* LIGHT MODE (Default) - Matches Image 1 */
+:root {
+    color-scheme: light;
+
+    /* Base Layout */
+    --bg-body: #f4f5f8;
+    --bg-page-wrapper: #f4f5f8;
+    --bg-page-inner: #ffffff;
+    --page-inner-border: rgba(0, 0, 0, 0.06);
+
+    /* Navbar */
+    --bg-navbar: #ffffff;
+    --border-navbar: #e5e7eb;
+    --text-navbar: #111827;
+
+    /* Sidebar */
+    --bg-sidebar: #ffffff;
+    --border-sidebar: #e5e7eb;
+    --sidebar-brand-text: #111827;
+    --text-sidebar-link: #374151;
+    --text-sidebar-icon: #6b7280;
+    --bg-sidebar-hover: #f3f4f6;
+    --text-sidebar-hover: #111827;
+    --bg-active-menu: #eef2ff;
+    --text-active-menu: #4f46e5;
+    --border-active-menu: #4f46e5;
+
+    /* Typography */
+    --heading-dashboard: #111827;
+    --text-primary: #111827;
+    --text-secondary: #4b5563;
+    --text-muted: #6b7280;
+    --hr-color: #e5e7eb;
+
+    /* Stat Cards - Light Mode Pastels (Exact to Image 1) */
+    --card-body-bg: #ffffff;
+    --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    --card-number-color: #111827;
+
+    /* Card 1: Courses (Soft Blue) */
+    --card-courses-border: #bfdbfe;
+    --card-courses-head-bg: #dbeafe;
+    --card-courses-head-text: #1e40af;
+
+    /* Card 2: Approved Examiners (Soft Green) */
+    --card-examiners-border: #bbf7d0;
+    --card-examiners-head-bg: #dcfce7;
+    --card-examiners-head-text: #15803d;
+
+    /* Card 3: Pending Approvals (Soft Amber) */
+    --card-pending-border: #fde68a;
+    --card-pending-head-bg: #fef3c7;
+    --card-pending-head-text: #b45309;
+
+    /* Card 4: Examinees (Soft Cyan) */
+    --card-examinees-border: #bae6fd;
+    --card-examinees-head-bg: #e0f2fe;
+    --card-examinees-head-text: #0369a1;
+
+    /* Card 5: Exams (Soft Gray/Warm Sand) */
+    --card-exams-border: #e4e4e7;
+    --card-exams-head-bg: #f4f4f5;
+    --card-exams-head-text: #3f3f46;
+
+    /* General Panel / Card */
+    --panel-default-bg: #ffffff;
+    --panel-default-border: #e5e7eb;
+    --panel-default-head-bg: #f9fafb;
+    --panel-default-head-text: #111827;
+
+    /* Tables */
+    --table-bg: #ffffff;
+    --table-border: #e5e7eb;
+    --table-th-bg: #f9fafb;
+    --table-th-text: #1f2937;
+    --table-td-text: #374151;
+    --table-row-hover: #f9fafb;
+    --table-striped-bg: #fafafa;
+
+    /* Forms */
+    --input-bg: #ffffff;
+    --input-border: #d1d5db;
+    --input-text: #111827;
+    --input-focus-border: #6366f1;
+    --input-focus-glow: rgba(99, 102, 241, 0.2);
+
+    /* Cards and Table Tokens (Shared across Reports & Subpages) */
+    --card-bg: #ffffff;
+    --card-text: #111827;
+    --table-border-color: #e5e7eb;
+    --btn-default-bg: #ffffff;
+    --btn-default-border: #d1d5db;
+    --btn-default-color: #374151;
+
+    /* Theme Toggle Button */
+    --btn-toggle-bg: #f3f4f6;
+    --btn-toggle-border: #d1d5db;
+    --btn-toggle-color: #374151;
+    --btn-toggle-hover-bg: #e5e7eb;
+
+    /* Donut Empty Ring */
+    --donut-empty-bg: #e2e8f0;
+
+    /* Formal Executive Pill Badges (Light Mode) */
+    --badge-success-bg: #dcfce7;
+    --badge-success-text: #15803d;
+    --badge-success-border: #bbf7d0;
+    --badge-info-bg: #e0f2fe;
+    --badge-info-text: #0369a1;
+    --badge-info-border: #bae6fd;
+    --badge-warning-bg: #fef3c7;
+    --badge-warning-text: #b45309;
+    --badge-warning-border: #fde68a;
+    --badge-danger-bg: #fee2e2;
+    --badge-danger-text: #b91c1c;
+    --badge-danger-border: #fecaca;
+    --badge-default-bg: #f1f5f9;
+    --badge-default-text: #475569;
+    --badge-default-border: #e2e8f0;
+}
+
+/* DARK MODE - Matches Image 2 */
+[data-theme="dark"] {
+    color-scheme: dark;
+
+    /* Base Layout */
+    --bg-body: #111215;
+    --bg-page-wrapper: #111215;
+    --bg-page-inner: #16171b;
+    --page-inner-border: #22242a;
+
+    /* Navbar */
+    --bg-navbar: #15161a;
+    --border-navbar: #22242a;
+    --text-navbar: #ffffff;
+
+    /* Sidebar */
+    --bg-sidebar: #131417;
+    --border-sidebar: #22242a;
+    --sidebar-brand-text: #ffffff;
+    --text-sidebar-link: #94a3b8;
+    --text-sidebar-icon: #818cf8;
+    --bg-sidebar-hover: #1c1e24;
+    --text-sidebar-hover: #ffffff;
+    --bg-active-menu: rgba(99, 102, 241, 0.16);
+    --text-active-menu: #a5b4fc;
+    --border-active-menu: #818cf8;
+
+    /* Typography */
+    --heading-dashboard: #ffffff;
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+    --hr-color: #262933;
+
+    /* Stat Cards - Dark Mode (Exact to Image 2) */
+    --card-body-bg: #18191f;
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+    --card-number-color: #ffffff;
+
+    /* Card 1: Courses (Deep Blue / Navy) */
+    --card-courses-border: #1e3a8a;
+    --card-courses-head-bg: rgba(30, 58, 138, 0.45);
+    --card-courses-head-text: #93c5fd;
+
+    /* Card 2: Approved Examiners (Deep Green) */
+    --card-examiners-border: #14532d;
+    --card-examiners-head-bg: rgba(20, 83, 45, 0.45);
+    --card-examiners-head-text: #86efac;
+
+    /* Card 3: Pending Approvals (Deep Amber) */
+    --card-pending-border: #78350f;
+    --card-pending-head-bg: rgba(120, 53, 15, 0.45);
+    --card-pending-head-text: #fde047;
+
+    /* Card 4: Examinees (Deep Cyan) */
+    --card-examinees-border: #155e75;
+    --card-examinees-head-bg: rgba(21, 94, 117, 0.45);
+    --card-examinees-head-text: #7dd3fc;
+
+    /* Card 5: Exams (Slate Dark) */
+    --card-exams-border: #3f3f46;
+    --card-exams-head-bg: rgba(63, 63, 70, 0.5);
+    --card-exams-head-text: #d4d4d8;
+
+    /* General Panel / Card */
+    --panel-default-bg: #18191f;
+    --panel-default-border: #272a33;
+    --panel-default-head-bg: #20222a;
+    --panel-default-head-text: #f8fafc;
+
+    /* Tables */
+    --table-bg: #18191f;
+    --table-border: #272a33;
+    --table-th-bg: #1f2129;
+    --table-th-text: #f8fafc;
+    --table-td-text: #cbd5e1;
+    --table-row-hover: #21232c;
+    --table-striped-bg: #1c1d24;
+
+    /* Forms */
+    --input-bg: #1d1f27;
+    --input-border: #333642;
+    --input-text: #ffffff;
+    --input-focus-border: #a855f7;
+    --input-focus-glow: rgba(168, 85, 247, 0.25);
+
+    /* Cards and Table Tokens (Dark Mode) */
+    --card-bg: #18191f;
+    --card-text: #f8fafc;
+    --table-border-color: #272a33;
+    --btn-default-bg: #22242c;
+    --btn-default-border: #374151;
+    --btn-default-color: #f1f5f9;
+
+    /* Theme Toggle Button */
+    --btn-toggle-bg: #1e2027;
+    --btn-toggle-border: #333642;
+    --btn-toggle-color: #f1f5f9;
+    --btn-toggle-hover-bg: #272933;
+
+    /* Donut Empty Ring (Dark) */
+    --donut-empty-bg: #334155;
+
+    /* Formal Executive Pill Badges (Dark Mode) */
+    --badge-success-bg: rgba(34, 197, 94, 0.15);
+    --badge-success-text: #4ade80;
+    --badge-success-border: rgba(34, 197, 94, 0.3);
+    --badge-info-bg: rgba(59, 130, 246, 0.15);
+    --badge-info-text: #60a5fa;
+    --badge-info-border: rgba(59, 130, 246, 0.3);
+    --badge-warning-bg: rgba(245, 158, 11, 0.15);
+    --badge-warning-text: #fbbf24;
+    --badge-warning-border: rgba(245, 158, 11, 0.3);
+    --badge-danger-bg: rgba(239, 68, 68, 0.15);
+    --badge-danger-text: #f87171;
+    --badge-danger-border: rgba(239, 68, 68, 0.3);
+    --badge-default-bg: rgba(148, 163, 184, 0.15);
+    --badge-default-text: #cbd5e1;
+    --badge-default-border: rgba(148, 163, 184, 0.25);
+}
+
+/* =============================================================
+   BASE STYLES & GLOBAL FORMAL TYPOGRAPHY
+============================================================= */
+
+*, html, body, button, input, select, textarea, .panel, .table, h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+body {
+    background-color: var(--bg-body);
+    color: var(--text-primary);
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-size: 14px;
+    line-height: 1.5;
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+#wrapper {
+    width: 100%;
+    background-color: var(--bg-body);
+    min-height: 100vh;
+}
+
+/* Page Wrapper */
+#page-wrapper {
+    background-color: var(--bg-page-wrapper);
+    min-height: 100vh;
+    padding: 24px 32px;
+    margin-left: 260px;
+    transition: background-color 0.25s ease;
+}
+
+#page-inner {
+    background: transparent;
+    padding: 0;
+    min-height: auto;
+}
+
+/* Dashboard container wrapper */
+.dashboard-container {
+    padding: 0;
+}
+
+.dashboard-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--heading-dashboard);
+    margin-top: 0;
+    margin-bottom: 24px;
+    letter-spacing: -0.4px;
+    transition: color 0.25s ease;
+}
+
+/* =============================================================
+   TOP NAVBAR
+============================================================= */
+
+.navbar-cls-top {
+    background-color: var(--bg-navbar) !important;
+    border-bottom: 1px solid var(--border-navbar) !important;
+    margin-bottom: 0;
+    border-radius: 0;
+    min-height: 64px;
+    padding: 0 24px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.navbar-header {
+    background: transparent !important;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand-top {
+    display: none; /* Desktop shows 'Admin' in the sidebar per Image 1 & 2 */
+}
+
+/* Right Actions Container */
+.header-right-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-left: auto;
+}
+
+/* Theme Switcher Button */
+.theme-toggle-btn {
+    background-color: var(--btn-toggle-bg);
+    border: 1px solid var(--btn-toggle-border);
+    color: var(--btn-toggle-color);
+    padding: 7px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+.theme-toggle-btn:hover {
+    background-color: var(--btn-toggle-hover-bg);
+    transform: translateY(-1px);
+}
+
+.theme-toggle-btn i {
+    font-size: 14px;
+}
+
+/* Admin Logout Button */
+.btn-admin-logout {
+    background-color: #5601b8;
+    color: #ffffff !important;
+    padding: 7px 20px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none !important;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(86, 1, 184, 0.25);
+    transition: all 0.2s ease;
+}
+
+.btn-admin-logout:hover {
+    background-color: #430191;
+    color: #ffffff !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(86, 1, 184, 0.4);
+}
+
+/* =============================================================
+   SIDEBAR NAVIGATION (Matches Image 1 & 2)
+============================================================= */
+
+.navbar-default.navbar-side {
+    background-color: var(--bg-sidebar) !important;
+    border-right: 1px solid var(--border-sidebar) !important;
+    border-top: none;
+    border-bottom: none;
+    border-left: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 260px;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 100;
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.sidebar-collapse {
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+
+/* Admin Brand Header in Sidebar */
+.sidebar-admin-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--sidebar-brand-text);
+    text-align: left;
+    padding: 18px 24px 6px;
+    letter-spacing: -0.3px;
+    transition: color 0.25s ease;
+}
+
+/* Crest Logo Centered */
+.sidebar-logo-container {
+    text-align: center;
+    padding: 10px 20px 20px;
+}
+
+.sidebar-logo {
+    max-width: 110px;
+    height: auto;
+    display: inline-block;
+    filter: drop-shadow(0 4px 10px rgba(86, 1, 184, 0.2));
+    transition: transform 0.25s ease;
+}
+.sidebar-logo:hover {
+    transform: scale(1.04);
+}
+
+/* Menu Items */
+.navbar-default .nav#main-menu {
+    padding: 0 12px;
+}
+
+.navbar-default .nav#main-menu > li {
+    border-bottom: none !important;
+    margin-bottom: 3px;
+}
+
+.navbar-default .nav#main-menu > li > a {
+    color: var(--text-sidebar-link) !important;
+    background: transparent !important;
+    padding: 10px 14px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.2s ease;
+    text-shadow: none;
+}
+
+/* Icons */
+.navbar-default .nav#main-menu > li > a i.fa {
+    font-size: 16px;
+    width: 22px;
+    text-align: center;
+    color: var(--text-sidebar-icon);
+    transition: color 0.2s ease;
+}
+
+/* Hover */
+.navbar-default .nav#main-menu > li > a:hover,
+.navbar-default .nav#main-menu > li > a:focus {
+    background-color: var(--bg-sidebar-hover) !important;
+    color: var(--text-sidebar-hover) !important;
+}
+
+.navbar-default .nav#main-menu > li > a:hover i.fa {
+    color: var(--text-sidebar-hover);
+}
+
+/* Active Menu Item */
+.navbar-default .nav#main-menu > li > a.active-menu {
+    background-color: var(--bg-active-menu) !important;
+    color: var(--text-active-menu) !important;
+    font-weight: 600;
+}
+
+.navbar-default .nav#main-menu > li > a.active-menu i.fa {
+    color: var(--text-active-menu);
+}
+
+/* =============================================================
+   STAT METRIC CARDS (Exact Match to Image 1 & Image 2)
+============================================================= */
+
+/* Base Panel Styles */
+.panel {
+    border-radius: 12px !important;
+    box-shadow: var(--card-shadow) !important;
+    margin-bottom: 24px;
+    border: 1px solid var(--panel-default-border) !important;
+    background-color: var(--panel-default-bg) !important;
+    overflow: hidden;
+    transition: all 0.25s ease;
+}
+
+.panel-heading {
+    padding: 13px 20px !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    border-top-left-radius: 11px !important;
+    border-top-right-radius: 11px !important;
+    border-bottom: 1px solid var(--panel-default-border) !important;
+    background-color: var(--panel-default-head-bg) !important;
+    color: var(--panel-default-head-text) !important;
+    letter-spacing: -0.1px;
+}
+
+.panel-body {
+    background-color: var(--panel-default-bg) !important;
+    color: var(--text-primary) !important;
+    padding: 20px 22px !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 1.6 !important;
+    border-bottom-left-radius: 11px !important;
+    border-bottom-right-radius: 11px !important;
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.panel-footer {
+    background-color: var(--panel-default-head-bg) !important;
+    border-top: 1px solid var(--panel-default-border) !important;
+    color: var(--text-primary) !important;
+    padding: 14px 20px !important;
+    border-bottom-left-radius: 11px !important;
+    border-bottom-right-radius: 11px !important;
+}
+
+/* Stat Metric Panels on Dashboard ONLY */
+.dashboard-container .panel-body {
+    background-color: var(--card-body-bg) !important;
+    color: var(--card-number-color) !important;
+    padding: 20px 22px !important;
+    font-size: 34px !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.5px;
+    line-height: 1.2 !important;
+}
+
+.panel-body a {
+    color: inherit;
+    text-decoration: none;
+}
+.panel-body a:hover {
+    text-decoration: underline;
+}
+
+/* Card 1: Courses (Panel Primary) */
+.panel-primary {
+    border: 1px solid var(--card-courses-border) !important;
+    background-color: var(--card-body-bg) !important;
+}
+.panel-primary > .panel-heading {
+    background-color: var(--card-courses-head-bg) !important;
+    color: var(--card-courses-head-text) !important;
+    border-color: var(--card-courses-border) !important;
+}
+
+/* Card 2: Approved Examiners (Panel Success) */
+.panel-success {
+    border: 1px solid var(--card-examiners-border) !important;
+    background-color: var(--card-body-bg) !important;
+}
+.panel-success > .panel-heading {
+    background-color: var(--card-examiners-head-bg) !important;
+    color: var(--card-examiners-head-text) !important;
+    border-color: var(--card-examiners-border) !important;
+}
+
+/* Card 3: Pending Approvals (Panel Warning) */
+.panel-warning {
+    border: 1px solid var(--card-pending-border) !important;
+    background-color: var(--card-body-bg) !important;
+}
+.panel-warning > .panel-heading {
+    background-color: var(--card-pending-head-bg) !important;
+    color: var(--card-pending-head-text) !important;
+    border-color: var(--card-pending-border) !important;
+}
+
+/* Card 4: Examinees (Panel Info) */
+.panel-info {
+    border: 1px solid var(--card-examinees-border) !important;
+    background-color: var(--card-body-bg) !important;
+}
+.panel-info > .panel-heading {
+    background-color: var(--card-examinees-head-bg) !important;
+    color: var(--card-examinees-head-text) !important;
+    border-color: var(--card-examinees-border) !important;
+}
+
+/* Card 5: Exams (Panel Default) */
+.panel-default {
+    border: 1px solid var(--panel-default-border) !important;
+    background-color: var(--panel-default-bg) !important;
+}
+.panel-default > .panel-heading {
+    background-color: var(--panel-default-head-bg) !important;
+    color: var(--panel-default-head-text) !important;
+    border-color: var(--panel-default-border) !important;
+}
+
+/* =============================================================
+   ADMIN MANAGEMENT UI (Tables, Forms, Badges, Modals)
+============================================================= */
+
+/* Page Headers on other admin subpages */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-primary);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    transition: color 0.25s ease;
+}
+
+h2 {
+    font-size: 24px;
+    margin-top: 10px;
+    margin-bottom: 8px;
+}
+
+h3 {
+    font-size: 18px;
+}
+
+hr {
+    border-top: 1px solid var(--hr-color);
+    margin-top: 16px;
+    margin-bottom: 24px;
+}
+
+p.text-muted, .text-muted {
+    color: var(--text-muted) !important;
+}
+
+/* Executive Back Navigation Button */
+.btn-back, a.btn-back, .btn-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none !important;
+    background-color: var(--panel-default-head-bg);
+    border: 1px solid var(--panel-default-border);
+    color: var(--text-secondary) !important;
+    transition: all 0.2s ease;
+    margin-bottom: 16px;
+}
+.btn-back:hover, a.btn-back:hover, .btn-back-link:hover {
+    color: var(--text-primary) !important;
+    border-color: var(--text-muted);
+    transform: translateX(-3px);
+}
+
+/* Description List & Key-Value Overrides (Prevents Truncation e.g. Highes..., Design...) */
+@media (min-width: 768px) {
+    .dl-horizontal dt {
+        float: left;
+        width: 175px;
+        clear: left;
+        text-align: left !important;
+        overflow: visible !important;
+        text-overflow: clip !important;
+        white-space: normal !important;
+        font-weight: 600;
+        color: var(--text-muted);
+        margin-bottom: 12px;
+        font-size: 13.5px;
+    }
+    .dl-horizontal dd {
+        margin-left: 195px !important;
+        margin-bottom: 12px;
+        color: var(--text-primary);
+        font-weight: 500;
+        font-size: 14px;
+        word-break: break-word;
+    }
+}
+
+/* Executive Information Grid / Key-Value List */
+.info-kv-table {
+    width: 100%;
+}
+.info-kv-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--table-border);
+}
+.info-kv-row:last-child {
+    border-bottom: none;
+}
+.info-kv-label {
+    color: var(--text-muted);
+    font-size: 13.5px;
+    font-weight: 500;
+    flex: 0 0 170px;
+}
+.info-kv-value {
+    color: var(--text-primary);
+    font-size: 14px;
+    font-weight: 600;
+    text-align: right;
+    flex: 1;
+    word-break: break-word;
+}
+
+/* Tables */
+.table {
+    background-color: var(--table-bg);
+    border: 1px solid var(--table-border);
+    border-radius: 10px;
+    overflow: hidden;
+    color: var(--table-td-text);
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.table > thead > tr > th {
+    background-color: var(--table-th-bg);
+    color: var(--table-th-text);
+    border-bottom: 1px solid var(--table-border);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    padding: 14px 16px;
+}
+
+.table > tbody > tr > td {
+    border-top: 1px solid var(--table-border);
+    color: var(--table-td-text);
+    padding: 13px 16px;
+    vertical-align: middle;
+    font-size: 13.5px;
+}
+
+.table-hover > tbody > tr:hover {
+    background-color: var(--table-row-hover);
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: var(--table-striped-bg);
+}
+
+/* Form Controls */
+.form-control {
+    background-color: var(--input-bg);
+    border: 1px solid var(--input-border);
+    color: var(--input-text);
+    border-radius: 8px;
+    padding: 8px 12px;
+    height: auto;
+    min-height: 38px;
+    font-size: 13.5px;
+    box-shadow: none;
+    transition: all 0.2s ease;
+}
+
+.form-control:focus {
+    border-color: var(--input-focus-border);
+    box-shadow: 0 0 0 3px var(--input-focus-glow);
+    background-color: var(--input-bg);
+    color: var(--input-text);
+    outline: none;
+}
+
+select.form-control {
+    color: var(--input-text);
+}
+
+select.form-control option {
+    background-color: var(--input-bg);
+    color: var(--input-text);
+}
+
+/* Toolbar search inputs and selects */
+.ex-search input {
+    background-color: var(--input-bg) !important;
+    border-color: var(--input-border) !important;
+    color: var(--input-text) !important;
+}
+.ex-select {
+    background-color: var(--input-bg) !important;
+    border-color: var(--input-border) !important;
+    color: var(--input-text) !important;
+}
+
+/* Standard Buttons */
+.btn-primary {
+    background-color: #4f46e5 !important;
+    border-color: #4f46e5 !important;
+    color: #ffffff !important;
+    border-radius: 8px;
+    font-weight: 600;
+    padding: 8px 18px;
+    box-shadow: 0 1px 3px rgba(79, 70, 229, 0.2);
+}
+.btn-primary:hover, .btn-primary:focus {
+    background-color: #4338ca !important;
+    border-color: #4338ca !important;
+    transform: translateY(-1px);
+}
+
+.btn-success {
+    background-color: #16a34a !important;
+    border-color: #16a34a !important;
+    color: #ffffff !important;
+    border-radius: 8px;
+    font-weight: 600;
+    padding: 8px 18px;
+    box-shadow: 0 1px 3px rgba(22, 163, 74, 0.2);
+}
+.btn-success:hover, .btn-success:focus {
+    background-color: #15803d !important;
+    border-color: #15803d !important;
+    transform: translateY(-1px);
+}
+
+.btn-danger {
+    background-color: #dc2626 !important;
+    border-color: #dc2626 !important;
+    color: #ffffff !important;
+    border-radius: 8px;
+    font-weight: 600;
+    padding: 8px 18px;
+    box-shadow: 0 1px 3px rgba(220, 38, 38, 0.2);
+}
+.btn-danger:hover, .btn-danger:focus {
+    background-color: #b91c1c !important;
+    border-color: #b91c1c !important;
+    transform: translateY(-1px);
+}
+
+.btn-info {
+    background-color: #0284c7 !important;
+    border-color: #0284c7 !important;
+    color: #ffffff !important;
+    border-radius: 8px;
+    font-weight: 600;
+}
+.btn-info:hover {
+    background-color: #0369a1 !important;
+}
+
+.btn-default {
+    background-color: var(--btn-default-bg, #ffffff) !important;
+    border-color: var(--btn-default-border, #d1d5db) !important;
+    color: var(--btn-default-color, #374151) !important;
+    border-radius: 8px;
+    font-weight: 600;
+    padding: 8px 16px;
+    transition: all 0.2s ease;
+}
+.btn-default:hover, .btn-default:focus {
+    background-color: var(--btn-toggle-hover-bg, #e5e7eb) !important;
+    color: var(--text-primary, #111827) !important;
+}
+
+/* Formal Executive Pill Badges */
+.label {
+    border-radius: 20px !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    padding: 4px 12px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 5px;
+    letter-spacing: 0.02em;
+    text-shadow: none !important;
+    transition: all 0.2s ease;
+}
+
+.label-info {
+    background-color: var(--badge-info-bg) !important;
+    color: var(--badge-info-text) !important;
+    border: 1px solid var(--badge-info-border) !important;
+}
+.label-success {
+    background-color: var(--badge-success-bg) !important;
+    color: var(--badge-success-text) !important;
+    border: 1px solid var(--badge-success-border) !important;
+}
+.label-warning {
+    background-color: var(--badge-warning-bg) !important;
+    color: var(--badge-warning-text) !important;
+    border: 1px solid var(--badge-warning-border) !important;
+}
+.label-danger {
+    background-color: var(--badge-danger-bg) !important;
+    color: var(--badge-danger-text) !important;
+    border: 1px solid var(--badge-danger-border) !important;
+}
+.label-default {
+    background-color: var(--badge-default-bg) !important;
+    color: var(--badge-default-text) !important;
+    border: 1px solid var(--badge-default-border) !important;
+}
+
+/* Modals */
+.modal-content {
+    background-color: var(--panel-default-bg);
+    border: 1px solid var(--panel-default-border);
+    color: var(--text-primary);
+    border-radius: 12px;
+}
+
+.modal-header {
+    border-bottom: 1px solid var(--table-border);
+}
+
+.modal-footer {
+    border-top: 1px solid var(--table-border);
+}
+
+/* =============================================================
+   RESPONSIVE DESIGN (Mobile & Tablet)
+============================================================= */
+
+@media (max-width: 768px) {
+    #page-wrapper {
+        margin-left: 0;
+        padding: 16px;
+    }
+
+    .navbar-default.navbar-side {
+        position: static;
+        width: 100%;
+        height: auto;
+    }
+
+    .navbar-cls-top {
+        padding: 0 16px;
+    }
+
+    .navbar-brand-top {
+        display: block;
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--text-navbar);
+        text-decoration: none;
+        margin-left: 10px;
+    }
+
+    .navbar-toggle {
+        background-color: var(--btn-toggle-bg);
+        border: 1px solid var(--btn-toggle-border);
+        border-radius: 6px;
+        margin-right: 10px;
+    }
+    .navbar-toggle .icon-bar {
+        background-color: var(--text-navbar);
+    }
+}

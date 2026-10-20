@@ -1,0 +1,28 @@
+# OS and editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Logs and temporary files
+*.log
+error_log
+*.tmp
+*.bak
+*.swp
+
+# Dependencies
+vendor/
+node_modules/
+
+# Environment and secret configuration files
+.env
+config.local.php
+
+# User upload folders (folders are kept via .gitkeep, contents are ignored)
+uploads/*
+!uploads/.gitkeep
+!uploads/*/
+uploads/*/*
+!uploads/*/.gitkeep
